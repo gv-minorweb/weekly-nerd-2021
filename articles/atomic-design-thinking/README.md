@@ -108,7 +108,7 @@ Brad Frost demonstrates this, by taking a look at the Instagram app, although th
 
 The Atomic Design methodology can be applied to anything that involves a User Interface. This includes web apps using a specific framework such as React, or none at all.
 
-# Resources
+## Resources
 
 https://bradfrost.com/blog/post/atomic-web-design/
 

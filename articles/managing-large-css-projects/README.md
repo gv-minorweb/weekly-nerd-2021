@@ -16,13 +16,9 @@ Some of these problems only come to light when working on very large, complex pr
 
 ## The right methodology
 
-In 2021, there are dozens of ways to go about setting up and managing your CSS. I'll briefly go over the most popular options as of last year, according to the [2020 State of CSS](https://2020.stateofcss.com/en-US/technologies/methodologies/) survey and then go into more detail with the methods I use.
+In 2021, there are dozens of ways to go about setting up and managing your CSS. According to the [2020 State of CSS](https://2020.stateofcss.com/en-US/technologies/methodologies/) survey the most popular ones are BEM, Atomic CSS, OOCSS, SMACSS and ITCSS. I don't necessarily think one is better than another, but ITCSS has worked for me, so in this article I'll go over ITCSS and how you can apply that methodology in your projects.
 
-was BEM, followed by Atomic CSS, OOCSS, SMACSS and ITCSS.
-
-### Specificity
-
-Minimizing the depth http://smacss.com/book/applicability
+Also, just as a side note, you can definitely mix and use multiple methodologies together. For example, ITCSS for your project structure and BEM for the naming convention can work very well.
 
 ## Introducing ITCSS
 
@@ -74,7 +70,7 @@ Class based selectors to define undecorated design patterns and layout (no cosme
 
 #### `/06_components`
 
-Specific UI components such as an accordion or a slider.
+Specific UI components such as an accordion or a slider. As mentioned, you are allowed to add/remove/rename layers that you deem fit for your project. React for example is a component based framework, so in such cases you might want to remove the components layer and keep that separate from the rest of the CSS.
 
 #### `/09_utilities`
 
@@ -85,12 +81,14 @@ High-specificity, very explicit selectors. Includes helper/utility classes with 
 
 ```
 01_settings
+└ _all.scss
 └ _settings.colors.scss
 └ _settings.easings.scss
 └ _settings.media.scss
 └ _settings.typography.scss
 
 02_tools
+└ _all.scss
 └ _tools.headings.scss
 
 03_generic
@@ -113,7 +111,24 @@ High-specificity, very explicit selectors. Includes helper/utility classes with 
 index.scss
 ```
 
----
+Then in the index.scss file you'd import all individual files, something like:
+
+```js
+// Settings
+@import '01_settings/all'
+
+// Tools
+@import '02_tools/all'
+
+...
+
+// Components
+@import '06_components/components.accordion'
+
+...
+```
+
+Using a structure like above keeps your files organised and easy to recognize and manage.
 
 The triangle also shows how CSS is ordered, from generic styles to explicit styles, from low-specificity selectors to more specific ones.
 
