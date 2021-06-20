@@ -4,6 +4,7 @@
 
 1. [Applying CSS at large-scale web projects](articles/managing-large-css-projects)
 2. [Atomic Design Thinking](articles/atomic-design-thinking)
+3. [Becoming a (more) creative front-end developer](articles/creative-front-end-developer)
 
 <!-- ### Weekly Nerd #1
 
